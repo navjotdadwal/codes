@@ -20,7 +20,7 @@ void precompute(int n)
     for(int j=1;j<=18;j++)
       p[i][j]=p[p[i][j-1]][j-1];  
   }  
-
+}
 int calc_LCA(int x,int y)
 {
   if(level[x]>level[y]) swap(x,y);
