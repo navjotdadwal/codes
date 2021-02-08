@@ -93,8 +93,9 @@ using namespace std;
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
 const int N = 100010;
-vector<int> g[N],tree[N];
-int tin[N],minAncestor[N],used[N],isBridge[N],comp[N];
+vector<pii> g[N];
+vector<int> tree[N];
+int tin[N],minAncestor[N],used[N],isBridge[N],comp[N],timer,compid=1;
 void dfs(int v, int p) {
     tin[v] = minAncestor[v] = ++timer;
     used[v] = 1;
@@ -129,7 +130,7 @@ void dfs1(int v, int p) {
         dfs1(to, v);
     }
 }
-
+vector<pii> edges(N);
 int32_t main()
 {
     FAST
@@ -141,14 +142,25 @@ int32_t main()
       cin>>n>>m;
       int a,b;
       cin>>a>>b;
-      for(int i=0;i<n;i++)
+      for(int i=1;i<=m;i++)
       {
         int u,v;
         cin>>u>>v;
-        g[u].pb(v);
-        g[v].pb(u);
+        g[u].pb({v,i});
+        g[v].pb({u,i});
+        edges[i]={u,v};
       }
-      for(int i = 1; i <= M; ++i) 
+      dfs(1,0);
+      for(int i=0;i<=n;i++) used[i]=0;
+      for(int i=1;i<=n;i++)
+      {
+        if(!used[i])
+        {
+          dfs1(i,0);
+          compid++;  
+        }  
+      }
+      for(int i = 1; i <= m; ++i) 
       {
         if(isBridge[i]) 
         {
@@ -159,6 +171,27 @@ int32_t main()
           tree[comp[v]].push_back(comp[u]);
         }
       }
+      a=comp[a],b=comp[b];
+      vector<int> dist(n+1,inf),vis(n+1,0);
+      dist[a]=0;
+      queue<int> q;
+      q.push(a);
+      vis[a]=1;
+      while(!q.empty())
+      {
+        int src=q.front();
+        q.pop();
+        for(int to: tree[src])
+        {
+          if(!vis[to])
+          {
+            vis[to]=1;
+            dist[to]=dist[src]+1;
+            q.push(to);
+          }
+        }
+      }
+      cout<<dist[b];     
     }
     return 0;
 }
