@@ -26,18 +26,18 @@ ALWAYS: older_update.combine(newer_update)
  
 // min(x,INF) = x
  
-struct my_node
+struct node
 {
 	int mn = INF;
 	int freq = 0;
 	// use more variables if you want more information
 	// these default values should be identity_element
-	my_node(){}
-	my_node(int val){
+	node(){}
+	node(int val){
 		mn = val;
 		freq = 1;
 	}
-	void merge(const my_node &l,const my_node &r){ // store the thing you wanna query
+	void merge(const node &l,const node &r){ // store the thing you wanna query
  
 		mn = min(l.mn,r.mn);
 		freq = 0;
@@ -54,24 +54,24 @@ struct my_node
  
 // if old is identity which is 0, then 0 + new which new
  
-struct my_update
+struct update
 {
 	int v = 0; // 4
 	// use more variables if you want more information
 	// these default values should be identity_transformation
-	my_update(){}
-	my_update(int val){
+	update(){}
+	update(int val){
 		v = val; // 5
 	}
-	// combine the current my_update with the other my_update (see keynotes)
-	void combine(my_update &other,const int32_t &tl,const int32_t &tr){
+	// combine the current my_update with the other update (see keynotes)
+	void combine(update &other,const int32_t &tl,const int32_t &tr){
 		v += other.v; // 6
  
 		// you can be sure that the "other" is newer than current
  
 	}
-	// store the correct information in the my_node x
-	void apply(my_node &x,const int32_t &tl,const int32_t &tr){
+	// store the correct information in the node x
+	void apply(node &x,const int32_t &tl,const int32_t &tr){
  
 		// no change in freq
 		x.mn += v;
