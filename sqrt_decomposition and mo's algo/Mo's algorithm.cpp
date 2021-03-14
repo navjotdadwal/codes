@@ -15,7 +15,7 @@ int BLK = 700;
 bool comp(query a, query b)
 {
   if(a.L/BLK != b.L/BLK)
-  return a.L/BLK <= b.L/BLK
+  return a.L/BLK <= b.L/BLK;
 
   else 
   return a.R <= b.R;
