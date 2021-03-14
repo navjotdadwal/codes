@@ -4,7 +4,7 @@ struct query{
   int l;
   int r;
   int idx;
-}  
+};  
 
 int ar[N],ans[N];
 int fre[N];
