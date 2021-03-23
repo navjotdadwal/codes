@@ -15,7 +15,7 @@ void dfs(int v,int p)
     {
       dfs(to);  
       low[v]=min(low[v],low[to]);
-      if(low[v]<tin[to])
+      if(low[to]>tin[v])
         s.insert({to,v});
     } 
   }
