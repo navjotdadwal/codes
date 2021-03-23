@@ -24,6 +24,6 @@ for(int i=1;i<=n;i++)
 {
   if(!vis[i])
   {
-    dfs(i);
+    dfs(i,-1);
   }
 }
