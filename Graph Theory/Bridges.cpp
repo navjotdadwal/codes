@@ -19,3 +19,10 @@ void dfs(int v,int p)
     } 
   }
 }
+for(int i=1;i<=n;i++)
+{
+  if(!vis[i])
+  {
+    dfs(i);
+  }
+}
