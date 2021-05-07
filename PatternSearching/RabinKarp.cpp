@@ -1,3 +1,5 @@
+Reference: https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/
+
 // d is the number of characters in the input alphabet 
 #define d 256 
   
