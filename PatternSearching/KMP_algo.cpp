@@ -1,3 +1,5 @@
+Reference: https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
+
 // Fills lps[] for given patttern pat[0..M-1]
 void computeLPSArray(string pat, int M,string lps)
 {
