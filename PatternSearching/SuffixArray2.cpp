@@ -1,3 +1,4 @@
+// suffixArray[i] represents the position of string starting from i in the sorted array
 #define FILL(a, val) memset((a), (val), sizeof(a));
 namespace SuffixArray
 {
