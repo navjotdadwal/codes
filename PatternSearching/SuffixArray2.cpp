@@ -78,3 +78,5 @@ namespace SuffixArray
     }
 }
 vector<int> suffixArray = SuffixArray::getSuffixArray(s);
+
+// papaya -> 3 1 4 2 5 0
