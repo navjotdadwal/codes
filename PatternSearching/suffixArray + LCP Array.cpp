@@ -39,4 +39,6 @@ for (int i = 0; i < v.size(); i++)
 a[v[i]] = i;
 LCP.pb(undefined);
 LCP.push_back(suffix.LongestCommonPrefix(a[i], a[i+1]));
+
+papaya -> 3 1 4 2 5 0
 */
